@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gio.jsの基本サンプル２</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+        
+    <div id="globalArea" style="width:800px;height:420px"></div>
+    
+    
+    
+    <script src="https://threejs.org/build/three.min.js"></script>    
+    <script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
+    <script>      
+    
+      var container = document.getElementById( "globalArea" );
+
+      //config用のオプション設定
+      var config = {
+        "control": {
+          "stats": false,
+          "disableUnmentioned": false,
+          "lightenMentioned": true,
+          "inOnly": false,
+          "outOnly": false,
+          "initCountry": "JP",
+          "halo": true
+        },
+        "color": {
+          "surface": 1744048,
+          "selected": 2141154,
+          "in": 16765762,
+          "out": 5366382,
+          "halo": 2141154,
+          "background": 0
+        },
+        "brightness": {
+          "ocean": 0.95,
+          "mentioned": 0.28,
+          "related": 0.74
+        }
+      };
+
+      
+      //データセット
+      var data= [
+        { e: "JP", i: "CN", v: 8000000 },
+        { e: "JP", i: "TH", v: 3000000 },
+        { e: "JP", i: "ID", v: 1000000 },
+        { e: "US", i: "JP", v: 8000000 },
+        { e: "RU", i: "JP", v: 3000000 },
+        { e: "IN", i: "JP", v: 1000000 }]
+      
+      
+      //第２引数にconfigを設定する
+      var controller = new GIO.Controller( container, config );
+
+      
+      controller.addData( data );
+      controller.init();
+
+    </script>
+    
+  </body>
+</html>
