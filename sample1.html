@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gio.jsの基本サンプル</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+        
+    <!-- ここに3Dの地球を表示する -->
+    <div id="globalArea" style="width:1000px;height:700px"></div>
+    
+    
+    
+    <!-- 必要なリソースの読み込み -->
+    <script src="https://threejs.org/build/three.min.js"></script>    
+    <script src="https://raw.githack.com/syt123450/giojs/master/build/gio.min.js"></script>
+    <script src="https://raw.githack.com/syt123450/giojs/master/assets/data/sampleData.js"></script>
+    <script>      
+      
+      //div要素を取得する
+      var container = document.getElementById( "globalArea" );
+
+      //3Dの地球を生成する
+      var controller = new GIO.Controller( container );
+
+      //サンプルのデータを設定する
+      controller.addData( data );
+
+      controller.init();
+
+
+      //データの指定方法としてはサーバーからJSON形式のデータを読み込むことも可能
+      // controller.addDataAsync('/data/sampleData.json', function() {
+      //     controller.init();
+      // })
+    
+    </script>
+    
+  </body>
+</html>
